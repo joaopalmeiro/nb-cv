@@ -1,12 +1,41 @@
 
 ((* extends 'article.tplx' *))
 
+((* block commands *))
+\setcounter{secnumdepth}{0}
+((( super() )))
+((* endblock commands *))
+
+((* block definitions *))
+((( super() )))
+((* block repygments *))
+    %Reconfigured pygments
+    \makeatletter
+    \expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[HTML]{2f2f2f}{##1}}} % numbers
+    \expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[HTML]{2f2f2f}{##1}}} % comments
+    \expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[HTML]{2f2f2f}{##1}}} % operators
+    \makeatother
+((* endblock repygments *))
+((* endblock definitions *))
+    
 ((* block packages *))
 ((( super() )))
 \usepackage[sfdefault, light]{roboto}
+
+% Source: https://tex.stackexchange.com/questions/113338/use-sans-serif-in-a-verbatim-environment
+\makeatletter
+\begingroup
+\catcode`\`=\active
+\gdef\FV@fontfamily@sf{%
+  \def\FV@FontScanPrep{\FV@MakeActive\`}%
+  \def\FV@FontFamily{\sffamily\edef`{{\string`}}}}
+\endgroup
+\makeatother
 ((* endblock packages *))
 
-((* block maketitle *))((* endblock maketitle *))
+((* block maketitle *))
+\pagestyle{empty}
+((* endblock maketitle *))
 
 ((*- block margins -*))
     \geometry{verbose, tmargin=.7in, bmargin=.7in, lmargin=.7in, rmargin=.7in}
@@ -33,25 +62,23 @@
 ((* endif *))
 ((* endblock output_group *))
 
-((*- if draw_cell is not defined -*)) % Required to allow overriding.
-((* macro draw_cell(text, cell, prompt, prompt_color, extra_space) -*))
-((*- if prompt == 'In' -*))
-((*- set style = "breakable, size=fbox, boxsep=0mm, boxrule=1pt, pad at break*=1mm, colback=cellbackground, colframe=cellborder"-*))
-((*- else -*))
-((*- set style = "breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0"-*))
-((*-  endif -*))
-
-\begin{tcolorbox}[((( style )))]
-(((- draw_prompt(cell, prompt, prompt_color, extra_space) )))
-\begin{Verbatim}[commandchars=\\\{\}]
-((( text )))
-\end{Verbatim}
-\end{tcolorbox}
-((*- endmacro *))
-((*- endif -*))
-
 ((*- block style_prompt *))
     \newcommand{\prompt}[4]{
         {\sffamily\llap{{\color{#2}[#3] :\hspace{3pt}#4}}\vspace{-\baselineskip}}
     }
 ((* endblock style_prompt *))
+                         
+((*- if draw_cell is not defined -*)) % Required to allow overriding.
+((* macro draw_cell(text, cell, prompt, prompt_color, extra_space) -*))
+((*- if prompt == 'In' -*))
+((*- set style = "breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, colback=cellbackground, colframe=cellborder"-*))
+((*- else -*))((*- set style = "breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0"-*))((*-  endif -*))
+
+\begin{tcolorbox}[((( style )))]
+(((- draw_prompt(cell, prompt, prompt_color, extra_space) )))
+\begin{Verbatim}[commandchars=\\\{\}, fontfamily=sf]
+((( text )))
+\end{Verbatim}
+\end{tcolorbox}
+((*- endmacro *))
+((*- endif -*))
