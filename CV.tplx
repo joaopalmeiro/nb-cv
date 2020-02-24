@@ -6,17 +6,17 @@
 ((( super() )))
 ((* endblock commands *))
 
-((* block definitions *))
-((( super() )))
-((* block repygments *))
-    %Reconfigured pygments
-    \makeatletter
-    \expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[HTML]{2f2f2f}{##1}}} % numbers
-    \expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[HTML]{2f2f2f}{##1}}} % comments
-    \expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[HTML]{2f2f2f}{##1}}} % operators
-    \makeatother
-((* endblock repygments *))
-((* endblock definitions *))
+%((* block definitions *))
+%((( super() )))
+%((* block repygments *))
+%    % Source: https://github.com/t-makaro/nb_pdf_template/blob/master/nb_pdf_template/templates/classic.tplx
+%    \makeatletter
+%    \expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[HTML]{2f2f2f}{##1}}} % numbers
+%    \expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[HTML]{2f2f2f}{##1}}} % comments
+%    \expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[HTML]{2f2f2f}{##1}}} % operators
+%    \makeatother
+%((* endblock repygments *))
+%((* endblock definitions *))
     
 ((* block packages *))
 ((( super() )))
