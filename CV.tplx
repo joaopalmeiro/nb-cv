@@ -2,8 +2,8 @@
 ((* extends 'article.tplx' *))
 
 ((* block commands *))
-\setcounter{secnumdepth}{0}
-((( super() )))
+    \setcounter{secnumdepth}{0}
+    ((( super() )))
 ((* endblock commands *))
 
 %((* block definitions *))
@@ -19,22 +19,25 @@
 %((* endblock definitions *))
     
 ((* block packages *))
-((( super() )))
-\usepackage[sfdefault, light]{roboto}
-
-% Source: https://tex.stackexchange.com/questions/113338/use-sans-serif-in-a-verbatim-environment
-\makeatletter
-\begingroup
-\catcode`\`=\active
-\gdef\FV@fontfamily@sf{%
-  \def\FV@FontScanPrep{\FV@MakeActive\`}%
-  \def\FV@FontFamily{\sffamily\edef`{{\string`}}}}
-\endgroup
-\makeatother
+    \usepackage[bookmarks=false]{hyperref}
+                                                
+    ((( super() )))
+                                                
+    \usepackage[sfdefault,light]{roboto}
+                                                
+    % Source: https://tex.stackexchange.com/questions/113338/use-sans-serif-in-a-verbatim-environment
+    \makeatletter
+    \begingroup
+    \catcode`\`=\active
+    \gdef\FV@fontfamily@sf{%
+      \def\FV@FontScanPrep{\FV@MakeActive\`}%
+      \def\FV@FontFamily{\sffamily\edef`{{\string`}}}}
+    \endgroup
+    \makeatother
 ((* endblock packages *))
 
 ((* block maketitle *))
-\pagestyle{empty}
+    \pagestyle{empty}
 ((* endblock maketitle *))
 
 ((*- block margins -*))
@@ -42,24 +45,24 @@
 ((*- endblock margins -*))
 
 ((*- block style_colors *))
-    \definecolor{incolor}{HTML}{303F9F}
-    \definecolor{outcolor}{HTML}{D84315}
+    \definecolor{incolor}{HTML}{0F4392}
+    \definecolor{outcolor}{HTML}{DD1717}
     \definecolor{cellborder}{HTML}{CFCFCF}
     \definecolor{cellbackground}{HTML}{FFFFFF}
 ((*- endblock style_colors *))
 
 ((* block input_group *))
-((* if 'hide_input' in cell['metadata'].get('tags', []) *))
-((* elif 'show_input' in cell['metadata'].get('tags', []) *))
-    ((( super() )))
-((* endif *))
+    ((* if 'hide_input' in cell['metadata'].get('tags', []) *))
+    ((* elif 'show_input' in cell['metadata'].get('tags', []) *))
+        ((( super() )))
+    ((* endif *))
 ((* endblock input_group *))
 
 ((* block output_group *))
-((* if 'hide_output' in cell['metadata'].get('tags', []) *))
-((* elif 'show_output' in cell['metadata'].get('tags', []) *))
-    ((( super() )))
-((* endif *))
+    ((* if 'hide_output' in cell['metadata'].get('tags', []) *))
+    ((* elif 'show_output' in cell['metadata'].get('tags', []) *))
+        ((( super() )))
+    ((* endif *))
 ((* endblock output_group *))
 
 ((*- block style_prompt *))
@@ -68,7 +71,7 @@
     }
 ((* endblock style_prompt *))
                          
-((*- if draw_cell is not defined -*)) % Required to allow overriding.
+((*- if draw_cell is not defined -*))
 ((* macro draw_cell(text, cell, prompt, prompt_color, extra_space) -*))
 ((*- if prompt == 'In' -*))
 ((*- set style = "breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, colback=cellbackground, colframe=cellborder"-*))
