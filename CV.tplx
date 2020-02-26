@@ -20,10 +20,14 @@
     
 ((* block packages *))
     \usepackage[bookmarks=false]{hyperref}
+    
+    \usepackage[light]{roboto-mono}
+    \renewcommand*\familydefault{\ttdefault}
+    %\usepackage[T1]{fontenc}
                                                 
     ((( super() )))
                                                 
-    \usepackage[sfdefault,light]{roboto}
+    %\usepackage[sfdefault,light]{roboto}
                                                 
     % Source: https://tex.stackexchange.com/questions/113338/use-sans-serif-in-a-verbatim-environment
     \makeatletter
@@ -64,12 +68,6 @@
         ((( super() )))
     ((* endif *))
 ((* endblock output_group *))
-
-((*- block style_prompt *))
-    \newcommand{\prompt}[4]{
-        {\sffamily\llap{{\color{#2}[#3] :\hspace{3pt}#4}}\vspace{-\baselineskip}}
-    }
-((* endblock style_prompt *))
                          
 ((*- if draw_cell is not defined -*))
 ((* macro draw_cell(text, cell, prompt, prompt_color, extra_space) -*))
@@ -79,9 +77,16 @@
 
 \begin{tcolorbox}[((( style )))]
 (((- draw_prompt(cell, prompt, prompt_color, extra_space) )))
-\begin{Verbatim}[commandchars=\\\{\}, fontfamily=sf]
+\begin{Verbatim}[commandchars=\\\{\}]
 ((( text )))
 \end{Verbatim}
 \end{tcolorbox}
 ((*- endmacro *))
 ((*- endif -*))
+                         
+% \begin{Verbatim}[commandchars=\\\{\}, fontfamily=sf]
+                                                
+% style_prompt:
+%    \newcommand{\prompt}[4]{
+%        {\sffamily\llap{{\color{#2}[#3] :\hspace{3pt}#4}}\vspace{-\baselineskip}}
+%    }
