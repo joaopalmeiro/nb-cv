@@ -4,19 +4,44 @@
 ((* block commands *))
     \setcounter{secnumdepth}{0}
     ((( super() )))
+    
+    \hypersetup{
+        breaklinks=true,
+        colorlinks=true,
+        urlcolor=urlcolor,
+        linkcolor=linkcolor,
+        citecolor=citecolor,
+        pdftitle={CV},
+        pdfauthor={João Palmeiro},
+        pdfsubject={Curriculum vitae/Résumé},
+        pdfkeywords={Jupyter Notebook, nbconvert, pandas, Python}
+    }
+    
+    %Source: https://stackoverflow.com/questions/53870290/how-to-enable-syntax-highlighting-for-markdown-inline-code-with-pandoc
+    \definecolor{bgcolor}{HTML}{F3F3F3}
+    \let\oldtexttt\texttt
+
+    \renewcommand{\texttt}[1]{
+        \colorbox{bgcolor}{\oldtexttt{#1}}
+    }
+    
+    \definecolor{markdowncolor}{HTML}{2F2F2F}
+    \color{markdowncolor}
 ((* endblock commands *))
 
-%((* block definitions *))
-%((( super() )))
+((* block definitions *))
+    ((( super() )))
+    \definecolor{urlcolor}{HTML}{2F2F2F}
+    
 %((* block repygments *))
-%    % Source: https://github.com/t-makaro/nb_pdf_template/blob/master/nb_pdf_template/templates/classic.tplx
+%    %Source: https://github.com/t-makaro/nb_pdf_template/blob/master/nb_pdf_template/templates/classic.tplx
 %    \makeatletter
-%    \expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[HTML]{2f2f2f}{##1}}} % numbers
-%    \expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[HTML]{2f2f2f}{##1}}} % comments
-%    \expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[HTML]{2f2f2f}{##1}}} % operators
+%    \expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[HTML]{2F2F2F}{##1}}} % numbers
+%    \expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[HTML]{2F2F2F}{##1}}} % comments
+%    \expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[HTML]{2F2F2F}{##1}}} % operators
 %    \makeatother
 %((* endblock repygments *))
-%((* endblock definitions *))
+((* endblock definitions *))
     
 ((* block packages *))
     \usepackage[bookmarks=false]{hyperref}
@@ -29,15 +54,15 @@
                                                 
     %\usepackage[sfdefault,light]{roboto}
                                                 
-    % Source: https://tex.stackexchange.com/questions/113338/use-sans-serif-in-a-verbatim-environment
-    \makeatletter
-    \begingroup
-    \catcode`\`=\active
-    \gdef\FV@fontfamily@sf{%
-      \def\FV@FontScanPrep{\FV@MakeActive\`}%
-      \def\FV@FontFamily{\sffamily\edef`{{\string`}}}}
-    \endgroup
-    \makeatother
+    %Source: https://tex.stackexchange.com/questions/113338/use-sans-serif-in-a-verbatim-environment
+    %\makeatletter
+    %\begingroup
+    %\catcode`\`=\active
+    %\gdef\FV@fontfamily@sf{%
+    %  \def\FV@FontScanPrep{\FV@MakeActive\`}%
+    %  \def\FV@FontFamily{\sffamily\edef`{{\string`}}}}
+    %\endgroup
+    %\makeatother
 ((* endblock packages *))
 
 ((* block maketitle *))
@@ -51,7 +76,7 @@
 ((*- block style_colors *))
     \definecolor{incolor}{HTML}{0F4392}
     \definecolor{outcolor}{HTML}{DD1717}
-    \definecolor{cellborder}{HTML}{CFCFCF}
+    \definecolor{cellborder}{HTML}{F3F3F3}
     \definecolor{cellbackground}{HTML}{FFFFFF}
 ((*- endblock style_colors *))
 
@@ -84,9 +109,9 @@
 ((*- endmacro *))
 ((*- endif -*))
                          
-% \begin{Verbatim}[commandchars=\\\{\}, fontfamily=sf]
+%\begin{Verbatim}[commandchars=\\\{\}, fontfamily=sf]
                                                 
-% style_prompt:
+%style_prompt:
 %    \newcommand{\prompt}[4]{
 %        {\sffamily\llap{{\color{#2}[#3] :\hspace{3pt}#4}}\vspace{-\baselineskip}}
 %    }
