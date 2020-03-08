@@ -46,13 +46,13 @@
 ((* block packages *))
     \usepackage[bookmarks=false]{hyperref}
     
-    \usepackage[light]{roboto-mono}
+    \usepackage[light]{roboto-mono} %Input and Output
     \renewcommand*\familydefault{\ttdefault}
     %\usepackage[T1]{fontenc}
                                                 
     ((( super() )))
                                                 
-    %\usepackage[sfdefault,light]{roboto}
+    \usepackage[sfdefault,light]{roboto} %Markdown
                                                 
     %Source: https://tex.stackexchange.com/questions/113338/use-sans-serif-in-a-verbatim-environment
     %\makeatletter
