@@ -46,7 +46,7 @@
 ((* block packages *))
     \usepackage[bookmarks=false]{hyperref}
     
-    \usepackage[light]{roboto-mono} %Input and Output
+    \usepackage[light]{roboto-mono} %Input and Output (Verbatim)
     \renewcommand*\familydefault{\ttdefault}
     %\usepackage[T1]{fontenc}
                                                 
