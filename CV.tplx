@@ -1,8 +1,12 @@
 
 ((* extends 'article.tplx' *))
 
+((* block docclass *))
+    \documentclass[10pt]{extarticle} %Default: 11pt
+((* endblock docclass *))
+
 ((* block commands *))
-    \setcounter{secnumdepth}{0}
+    \setcounter{secnumdepth}{0} %Remove section numbers
     ((( super() )))
     
     \hypersetup{
@@ -66,11 +70,11 @@
 ((* endblock packages *))
 
 ((* block maketitle *))
-    \pagestyle{empty}
+    \pagestyle{empty} %Remove page number
 ((* endblock maketitle *))
 
 ((*- block margins -*))
-    \geometry{a4paper, verbose, tmargin=.5in, bmargin=.5in, lmargin=.7in, rmargin=.7in}
+    \geometry{a4paper, verbose, tmargin=.5in, bmargin=.5in, lmargin=.8in, rmargin=.8in}
 ((*- endblock margins -*))
 
 ((*- block style_colors *))
