@@ -70,7 +70,7 @@
 ((* endblock maketitle *))
 
 ((*- block margins -*))
-    \geometry{a4paper, verbose, tmargin=.7in, bmargin=.7in, lmargin=.7in, rmargin=.7in}
+    \geometry{a4paper, verbose, tmargin=.5in, bmargin=.5in, lmargin=.7in, rmargin=.7in}
 ((*- endblock margins -*))
 
 ((*- block style_colors *))
